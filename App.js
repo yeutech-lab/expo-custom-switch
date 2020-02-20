@@ -10,7 +10,7 @@ export default function App() {
       leftColor="#ff0000"
       rightColor="#000000"
       iconLeft={{
-        name: 'account',
+        name: 'heart',
         color: '#fff',
         style: {
           height: 22,
@@ -18,7 +18,7 @@ export default function App() {
         },
       }}
       iconRight={{
-        name: 'account-supervisor-circle',
+        name: 'archive',
         size: 30,
         color: '#fff',
         style: {
