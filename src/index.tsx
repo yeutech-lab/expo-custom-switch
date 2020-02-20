@@ -1,6 +1,6 @@
 import * as React from 'react';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Animated, Easing, Platform, StyleSheet } from 'react-native';
-import * as SVG from 'react-native-svg';
 import { useActive, useHover } from 'react-native-web-hooks';
 
 import { TouchableOpacity } from './Elements';
@@ -26,7 +26,7 @@ export default function Switch({ onChange, style, value, ...props }: Props) {
       {...onEnterAndClick(onValueChange)}
       style={[styles.wrapper, style]}
     >
-      <DayNightSwitch isClicked={value} />
+      <CustomSwitch isClicked={value} />
     </TouchableOpacity>
   );
 }
@@ -63,17 +63,11 @@ const MoonIcon = ({ isClicked, ...props }) => {
         props.style,
       ]}
     >
-      <SVG.Svg
+      <Icon
         pointerEvents="none"
         {...props}
         style={[styles.moonSvg, props.style]}
-        viewBox="0 0 30 32"
-      >
-        <SVG.Path
-          fill="white"
-          d="M22.592 21.504q3.36 0 6.56-1.792-1.344 4.64-5.184 7.616t-8.8 2.976q-6.016 0-10.304-4.288t-4.288-10.336q0-4.928 2.976-8.768t7.584-5.216q-1.792 3.2-1.792 6.56 0 5.504 3.904 9.376t9.344 3.872z"
-        />
-      </SVG.Svg>
+      />
     </Animated.View>
   );
 };
@@ -90,7 +84,7 @@ const onEnterAndClick = cb => {
   };
 };
 
-const DayNightSwitch = ({ isClicked }) => {
+const CustomSwitch = ({ isClicked }) => {
   const ref = React.useRef(null);
   const isHovered = useHover(ref);
   const isActive = useActive(ref);
@@ -125,83 +119,14 @@ const DayNightSwitch = ({ isClicked }) => {
     <Animated.View
       ref={ref}
       style={[
-        styles.dayNightSwitch,
+        styles.customSwitch,
         {
           backgroundColor,
           transform: [{ scale: scaleValue.current }],
         },
       ]}
     >
-      <Stars isClicked={isClicked} />
       <Circle isClicked={isClicked} />
-    </Animated.View>
-  );
-};
-
-const Star = ({ size = 3, x, y, index, isClicked, ...props }) => {
-  const value = createAnimatedValue(isClicked);
-
-  React.useEffect(() => {
-    Animated.timing(value.current, {
-      toValue: isClicked ? 1 : 0,
-      duration: 50 * index,
-    }).start();
-  }, [isClicked]);
-
-  return (
-    <Animated.View
-      {...props}
-      style={[
-        styles.star,
-        {
-          width: size,
-          height: size,
-          top: 8 + y,
-          left: 8 + x,
-          opacity: value.current,
-          transform: [
-            {
-              translateY: value.current.interpolate({
-                inputRange: [0, 1],
-                outputRange: [10, 0],
-              }),
-            },
-          ],
-        },
-        props.style,
-      ]}
-    />
-  );
-};
-
-const Stars = ({ isClicked, ...props }) => {
-  const value = createAnimatedValue(isClicked);
-
-  React.useEffect(() => {
-    Animated.timing(value.current, {
-      toValue: isClicked ? 1 : 0,
-      duration: transitionTime,
-    }).start();
-  }, [isClicked]);
-
-  return (
-    <Animated.View
-      {...props}
-      style={[
-        {
-          transform: [{ translateY: circleWidth * -0.75 }],
-          opacity: value.current,
-        },
-        props.style,
-      ]}
-    >
-      {props.children}
-      <Star isClicked={isClicked} index={1} size={2} x={10} y={3} />
-      <Star isClicked={isClicked} index={2} size={1} x={3} y={7} />
-      <Star isClicked={isClicked} index={3} size={1} x={12} y={18} />
-      <Star isClicked={isClicked} index={4} size={1} x={15} y={10} />
-      <Star isClicked={isClicked} index={5} size={1} x={19} y={4} />
-      <Star isClicked={isClicked} index={6} size={2} x={22} y={14} />
     </Animated.View>
   );
 };
@@ -270,7 +195,7 @@ const styles = StyleSheet.create({
       willChange: 'transform',
     }),
   },
-  dayNightSwitch: {
+  customSwitch: {
     ...webStyle({
       cursor: 'pointer',
     }),

@@ -1,0 +1,54 @@
+{
+  "ignore": [
+    "**/__tests__/**",
+    "**/*.test.{js,jsx,ts,tsx}",
+    "**/*.spec.{js,jsx,ts,tsx}",
+    "**/*.d.ts"
+  ],
+  "sections": [
+    {
+      "name": "Introduction",
+      "content": "docs/introduction.md"
+    },
+    {
+      "name": "Prerequisite",
+      "content": "docs/prerequisite.md"
+    },
+    {
+      "name": "Installation",
+      "content": "docs/installation.md"
+    },
+    {
+      "name": "Usage",
+      "components": [
+        "build/index.js"
+      ]
+    },
+    {
+      "name": "Contribute",
+      "content": "docs/contribute.md",
+      "sections": [
+        {
+          "name": "Commands",
+          "content": "docs/commands.md"
+        },
+        {
+          "name": "Release",
+          "content": "docs/release.md"
+        }
+      ]
+    },
+    {
+      "name": "Changelog",
+      "content": "CHANGELOG.md"
+    },
+    {
+      "name": "Code of conduct",
+      "content": "CODE_OF_CONDUCT.md"
+    }
+  ],
+  "ribbon": {
+    "url": "https://github.com/yeutech-lab/expo-custom-switch",
+    "text": "Fork us on GitHub"
+  }
+}
