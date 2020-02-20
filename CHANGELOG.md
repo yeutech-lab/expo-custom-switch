@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/yeutech-lab/expo-custom-switch/compare/v1.0.1...v1.0.2) (2020-02-20)
+
+
+### Bug Fixes
+
+* **lighten:** less lighten on the left ([31c95d0](https://github.com/yeutech-lab/expo-custom-switch/commit/31c95d081f86db6168bb8d2c5e5bf7f5387a55fc))
+
 ## [1.0.1](https://github.com/yeutech-lab/expo-custom-switch/compare/v1.0.0...v1.0.1) (2020-02-20)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "expo-custom-switch",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Custom theme toggle with a universal Switch component",
   "sideEffects": false,
   "author": "Dimitri Kopriwa <dimitri.kopriwa@yeutech.vn> (https://github.com/kopax)",
