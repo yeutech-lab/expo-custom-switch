@@ -44,5 +44,6 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2020 Evan Bacon.<br />
-This project is [MIT](/LICENSE) licensed.
+Copyright © 2020 Yeutech Company Limited
+
+This project is [MIT](/LICENSE.md) licensed.

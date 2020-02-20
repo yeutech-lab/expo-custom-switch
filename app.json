@@ -4,6 +4,6 @@
     "expo": {
       "entryPoint": "expo/AppEntry",
       "version": "0.1.0",
-      "platforms": ["web"]
+      "platforms": ["web", "android", "ios"]
     }
   }
