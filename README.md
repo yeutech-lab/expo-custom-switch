@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to the Expo Dark Mode Switch 👋</h1>
+<h1 align="center">Welcome to the Expo Custom Switch 👋</h1>
 
 <p align="center">
   <img align="center" alt="Product: demo" src="https://media.giphy.com/media/QZK2FgLG2odtMOSwkm/giphy.gif" />
@@ -8,8 +8,8 @@
   <a aria-label="made with expo" href="https://github.com/expo" target="_blank">
     <img src="https://img.shields.io/badge/MADE%20WITH%20EXPO-000.svg?style=for-the-badge&logo=expo&labelColor=4630eb&logoWidth=20">
   </a>
-  <a href="https://github.com/evanbacon" aria-label="Follow EvanBacon on Github" target="_blank">
-    <img alt="Github: evanbacon" src="https://img.shields.io/github/followers/evanbacon.svg?label=Follow&style=for-the-badge&logo=github&logoColor=FFFFFF&labelColor=24292e&logoWidth=20&color=lightgray" target="_blank" />
+  <a href="https://github.com/kopax" aria-label="Follow EvanBacon on Github" target="_blank">
+    <img alt="Github: kopax" src="https://img.shields.io/github/followers/kopax.svg?label=Follow&style=for-the-badge&logo=github&logoColor=FFFFFF&labelColor=24292e&logoWidth=20&color=lightgray" target="_blank" />
   </a>
   <a href="/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" target="_blank" />
@@ -30,18 +30,22 @@ Based on a component from the home screen of [twizzle](https://twizzle.app/) by 
 ## Install
 
 ```sh
-yarn add expo-dark-mode-switch && expo install react-native-svg
+yarn add expo-custom-switch
 
 # or
 
-npm install --save expo-dark-mode-switch && expo install react-native-svg
+npm install --save expo-custom-switch
 ```
+
+## Documentation and live demo
+
+Read [expo-custom-switch documentation](https://yeutech-lab.github.io/expo-custom-switch).
 
 ### Example
 
 ```tsx
 import * as React from 'react';
-import Switch from 'expo-dark-mode-switch';
+import Switch from 'expo-custom-switch';
 
 export default function App() {
   const [value, setValue] = React.useState(true);
@@ -51,7 +55,7 @@ export default function App() {
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/evanbacon/expo-dark-mode-switch/issues).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/yeutech-lab/expo-custom-switch/issues).
 
 ## Show your support
 
