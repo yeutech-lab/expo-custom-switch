@@ -64,7 +64,7 @@ const MoonIcon = ({ isClicked, ...props }) => {
       ]}
     >
       <Icon
-        pointerEvents="none"
+        name="archive"
         {...props}
         style={[styles.moonSvg, props.style]}
       />
