@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/yeutech-lab/expo-custom-switch/compare/v1.0.0...v1.0.1) (2020-02-20)
+
+
+### Bug Fixes
+
+* **CustomSwitch:** allow parameters to customize the icon ([db51cd1](https://github.com/yeutech-lab/expo-custom-switch/commit/db51cd1494bc1ef1a3bdff65b01c4eb975e65890))
+
 # 1.0.0 (2020-02-20)
 
 
