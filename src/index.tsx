@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Animated, Easing, Platform, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useActive, useHover } from 'react-native-web-hooks';
-
+import color from 'color';
 import { TouchableOpacity } from './Elements';
 
 const width = 70;
@@ -13,9 +13,22 @@ const transitionTime = 200;
 export type Props = React.ComponentProps<typeof TouchableOpacity> & {
   onChange: (value: boolean) => void;
   value: boolean;
+  iconLeft: object;
+  iconRight: object;
+  leftColor: string;
+  rightColor: string;
 };
 
-export default function Switch({ onChange, style, value, ...props }: Props) {
+export default function Switch({
+  onChange,
+  style,
+  value,
+  iconLeft,
+  iconRight,
+  leftColor,
+  rightColor,
+  ...props
+}: Props) {
   const onValueChange = React.useMemo(() => () => onChange(!value), [onChange]);
   return (
     <TouchableOpacity
@@ -26,7 +39,13 @@ export default function Switch({ onChange, style, value, ...props }: Props) {
       {...onEnterAndClick(onValueChange)}
       style={[styles.wrapper, style]}
     >
-      <CustomSwitch isClicked={value} />
+      <CustomSwitch
+        isClicked={value}
+        iconLeft={iconLeft}
+        iconRight={iconRight}
+        leftColor={leftColor}
+        rightColor={rightColor}
+      />
     </TouchableOpacity>
   );
 }
@@ -34,7 +53,10 @@ export default function Switch({ onChange, style, value, ...props }: Props) {
 const createAnimatedValue = (isOn: boolean) =>
   React.useRef(new Animated.Value(isOn ? 1 : 0));
 
-const MoonIcon = ({ isClicked, ...props }) => {
+const SlideUpIcon = ({
+  isClicked,
+  ...props
+}) => {
   const value = createAnimatedValue(isClicked);
 
   React.useEffect(() => {
@@ -48,7 +70,7 @@ const MoonIcon = ({ isClicked, ...props }) => {
   return (
     <Animated.View
       style={[
-        styles.moonSvg,
+        styles.icon,
         {
           opacity: value.current,
           transform: [
@@ -66,8 +88,9 @@ const MoonIcon = ({ isClicked, ...props }) => {
       <Icon
         name="archive"
         {...props}
-        style={[styles.moonSvg, props.style]}
+        style={[styles.icon, props.style]}
       />
+
     </Animated.View>
   );
 };
@@ -84,7 +107,13 @@ const onEnterAndClick = cb => {
   };
 };
 
-const CustomSwitch = ({ isClicked }) => {
+const CustomSwitch = ({
+  isClicked,
+  iconLeft,
+  iconRight,
+  leftColor,
+  rightColor,
+}) => {
   const ref = React.useRef(null);
   const isHovered = useHover(ref);
   const isActive = useActive(ref);
@@ -105,14 +134,17 @@ const CustomSwitch = ({ isClicked }) => {
       duration: transitionTime,
     }).start();
   }, [isActive, isHovered]);
-
+  const outputRange = [
+    leftColor,
+    rightColor,
+  ];
   const backgroundColor = isHovered
     ? isClicked
-      ? '#5559cc'
-      : '#79bfc3'
+      ? color(rightColor).lighten(0.2).toString()
+      : color(leftColor).lighten(0.2).toString()
     : value.current.interpolate({
         inputRange: [0, 1],
-        outputRange: ['#80c7cb', '#595dde'],
+        outputRange,
       });
 
   return (
@@ -126,12 +158,25 @@ const CustomSwitch = ({ isClicked }) => {
         },
       ]}
     >
-      <Circle isClicked={isClicked} />
+      <Circle
+        isClicked={isClicked}
+        iconLeft={iconLeft}
+        iconRight={iconRight}
+        leftColor={leftColor}
+        rightColor={rightColor}
+      />
     </Animated.View>
   );
 };
 
-const Circle = ({ isClicked, ...props }) => {
+const Circle = ({
+  isClicked,
+  iconLeft,
+  iconRight,
+  leftColor,
+  rightColor,
+  ...props
+}) => {
   const ref = React.useRef(null);
 
   const value = createAnimatedValue(isClicked);
@@ -149,9 +194,10 @@ const Circle = ({ isClicked, ...props }) => {
   const backgroundColor = isClicked
     ? `rgba(255,255,255,${isHovered ? '0.3' : '0.4'})`
     : isHovered
-    ? '#fff0bb'
-    : '#fddf75';
-  const borderColor = isClicked ? 'rgba(255,255,255,0.9)' : '#d6b05eb5';
+    ? color(leftColor).lighten(0.7).toString()
+    : color(leftColor).lighten(0.3).toString();
+  // const borderColor = isClicked ? 'rgba(255,255,255,0.9)' : '#d6b05eb5';
+  const borderColor = 'rgba(255,255,255,0.9)';
 
   return (
     <Animated.View
@@ -178,7 +224,8 @@ const Circle = ({ isClicked, ...props }) => {
         props.style,
       ]}
     >
-      <MoonIcon isClicked={isClicked} />
+      <SlideUpIcon isClicked={!isClicked} size={22} {...iconLeft} />
+      <SlideUpIcon isClicked={isClicked} size={22} {...iconRight} />
     </Animated.View>
   );
 };
@@ -229,7 +276,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderStyle: 'solid',
   },
-  moonSvg: {
+  icon: {
     ...webStyle({
       userSelect: 'none',
     }),
