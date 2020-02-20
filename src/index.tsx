@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Animated, Easing, Platform, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useActive, useHover } from 'react-native-web-hooks';
 
 import { TouchableOpacity } from './Elements';
@@ -64,7 +64,7 @@ const MoonIcon = ({ isClicked, ...props }) => {
       ]}
     >
       <Icon
-        pointerEvents="none"
+        name="archive"
         {...props}
         style={[styles.moonSvg, props.style]}
       />

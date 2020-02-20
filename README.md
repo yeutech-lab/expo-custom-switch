@@ -1,14 +1,10 @@
 <h1 align="center">Welcome to the Expo Custom Switch 👋</h1>
 
 <p align="center">
-  <img align="center" alt="Product: demo" src="https://media.giphy.com/media/QZK2FgLG2odtMOSwkm/giphy.gif" />
-</p>
-
-<p align="center">
   <a aria-label="made with expo" href="https://github.com/expo" target="_blank">
     <img src="https://img.shields.io/badge/MADE%20WITH%20EXPO-000.svg?style=for-the-badge&logo=expo&labelColor=4630eb&logoWidth=20">
   </a>
-  <a href="https://github.com/kopax" aria-label="Follow EvanBacon on Github" target="_blank">
+  <a href="https://github.com/kopax" aria-label="Follow Kopax on Github" target="_blank">
     <img alt="Github: kopax" src="https://img.shields.io/github/followers/kopax.svg?label=Follow&style=for-the-badge&logo=github&logoColor=FFFFFF&labelColor=24292e&logoWidth=20&color=lightgray" target="_blank" />
   </a>
   <a href="/LICENSE" target="_blank">
@@ -16,15 +12,12 @@
   </a>
 </p>
 
-Based on a component from the home screen of [twizzle](https://twizzle.app/) by [@thekitze](https://twitter.com/thekitze). Converted to Expo for use in iOS, Android, and Web apps.
+Based on a component from the home screen of [twizzle](https://twizzle.app/) by [@thekitze](https://twitter.com/thekitze). Converted to Expo for use in iOS, Android, and Web apps by [@EvanBacon](https://twitter.com/baconbrix) with [expo-dark-mode-switch](https://github.com/EvanBacon/expo-dark-mode-switch).
 
 <p>
-  <a href="https://twitter.com/baconbrix" target="_blank">
-    <img alt="Twitter: baconbrix" src="https://img.shields.io/twitter/follow/baconbrix.svg?style=for-the-badge&logo=TWITTER&logoColor=FFFFFF&labelColor=00aced&logoWidth=20&color=lightgray" target="_blank" />
+  <a href="https://twitter.com/DimitriKopriwa" target="_blank">
+    <img alt="Twitter: DimitriKopriwa" src="https://img.shields.io/twitter/follow/dimitrikopriwa.svg?style=for-the-badge&logo=TWITTER&logoColor=FFFFFF&labelColor=00aced&logoWidth=20&color=lightgray" target="_blank" />
   </a>
-  <a href="https://twitter.com/thekitze" target="_blank">
-    <img align="right" alt="Twitter: kitze" src="https://img.shields.io/twitter/follow/thekitze.svg?style=for-the-badge&logo=TWITTER&logoColor=FFFFFF&labelColor=00aced&logoWidth=20&color=lightgray" target="_blank" />
-  </a>  
 </p>
 
 ## Install
@@ -40,18 +33,6 @@ npm install --save expo-custom-switch
 ## Documentation and live demo
 
 Read [expo-custom-switch documentation](https://yeutech-lab.github.io/expo-custom-switch).
-
-### Example
-
-```tsx
-import * as React from 'react';
-import Switch from 'expo-custom-switch';
-
-export default function App() {
-  const [value, setValue] = React.useState(true);
-  return <Switch value={value} onChange={value => setValue(value)} />;
-}
-```
 
 ## 🤝 Contributing
 
