@@ -194,7 +194,7 @@ const Circle = ({
   const backgroundColor = isClicked
     ? `rgba(255,255,255,${isHovered ? '0.3' : '0.4'})`
     : isHovered
-    ? color(leftColor).lighten(0.7).toString()
+    ? color(leftColor).lighten(0.3).toString()
     : color(leftColor).lighten(0.3).toString();
   // const borderColor = isClicked ? 'rgba(255,255,255,0.9)' : '#d6b05eb5';
   const borderColor = 'rgba(255,255,255,0.9)';
